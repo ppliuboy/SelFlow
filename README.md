@@ -5,6 +5,8 @@ Authors: [Pengpeng liu](https://ppliuboy.github.io/), [Michael R. Lyu](http://ww
 
 Code and model will release on this repository.
 
+Please first check our [DDFlow](https://github.com/ppliuboy/DDFlow), which employs a simple but effective strategy to cope with occluded pixels.
+
 ## Citation
 If you find SelFlow useful in your research, please consider citing:
 
