@@ -5,7 +5,7 @@ Authors: [Pengpeng liu](https://ppliuboy.github.io/), [Michael R. Lyu](http://ww
 
 ![](./images/dance.gif)
 
-Code and models will come soon. Please first check our [DDFlow](https://github.com/ppliuboy/DDFlow), which employs a simple but effective strategy to cope with occluded pixels.
+Currently, we only release testing code. Training code and models will come soon. Please first check our previous version [DDFlow](https://github.com/ppliuboy/DDFlow), which employs a simple but effective strategy to cope with occluded pixels.
 
 Our SelFlow is the 1st place winner on [Sintel Optical Flow Benchmark](http://sintel.is.tue.mpg.de/results) since November 2018.
 ![](./images/sintel_benchmark.png)
