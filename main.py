@@ -19,7 +19,7 @@ def main(_):
     config = config_dict('./config/config.ini')
     run_config = config['run']
     dataset_config = config['dataset']    
-    distillation_config = config['distillation']
+    self_supervision_config = config['self_supervision']
     model = SelFlowModel(batch_size=run_config['batch_size'],
                          iter_steps=run_config['iter_steps'], 
                          initial_learning_rate=run_config['initial_learning_rate'],
@@ -46,12 +46,13 @@ def main(_):
                          is_restore_model=run_config['is_restore_model'],
                          restore_model=run_config['restore_model'],
                          dataset_config=dataset_config,
-                         distillation_config= distillation_config
+                         self_supervision_config=self_supervision_config
                          )
     
     if run_config['mode'] == 'test':
         model.test(restore_model=config['test']['restore_model'],
-                   save_dir=config['test']['save_dir'])
+                   save_dir=config['test']['save_dir'],
+                   is_normalize_img=dataset_config['is_normalize_img'])
     else:
         raise ValueError('Invalid mode. Mode should be one of {test}')
 

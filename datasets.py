@@ -10,14 +10,15 @@ from utils import mvn
 
 class BasicDataset(object):
     def __init__(self, crop_h=320, crop_w=896, batch_size=4, data_list_file='path_to_your_data_list_file', 
-                 img_dir='path_to_your_image_directory', fake_flow_occ_dir='path_to_your_fake_flow_occlusion_directory'):
+                 img_dir='path_to_your_image_directory', fake_flow_occ_dir='path_to_your_fake_flow_occlusion_directory', is_normalize_img=True):
         self.crop_h = crop_h
         self.crop_w = crop_w
         self.batch_size = batch_size
         self.img_dir = img_dir
-        self.data_list = np.loadtxt(data_list_file, dtype=np.str)
+        self.data_list = np.loadtxt(data_list_file, dtype=bytes).astype(np.str)
         self.data_num = self.data_list.shape[0]
         self.fake_flow_occ_dir = fake_flow_occ_dir
+        self.is_normalize_img = is_normalize_img
     
     # KITTI's data format for storing flow and mask
     # The first two channels are flow, the third channel is mask
@@ -31,9 +32,9 @@ class BasicDataset(object):
     
     # The default image type is PNG.
     def read_and_decode(self, filename_queue):
-        img0_name = tf.string_join([self.img_dir, filename_queue[0]])
-        img1_name = tf.string_join([self.img_dir, filename_queue[1]])
-        img2_name = tf.string_join([self.img_dir, filename_queue[2]])
+        img0_name = tf.string_join([self.img_dir, '/', filename_queue[0]])
+        img1_name = tf.string_join([self.img_dir, '/', filename_queue[1]])
+        img2_name = tf.string_join([self.img_dir, '/', filename_queue[2]])
  
         img0 = tf.image.decode_png(tf.read_file(img0_name), channels=3)
         img0 = tf.cast(img0, tf.float32)        
@@ -44,17 +45,17 @@ class BasicDataset(object):
  
         return img0, img1, img2    
     
-
+    # For Validation or Testing
     def preprocess_one_shot(self, filename_queue):
         img0, img1, img2 = self.read_and_decode(filename_queue)
         img0 = img0 / 255.
         img1 = img1 / 255.
-        img2 = img2 / 255.
+        img2 = img2 / 255.  
         
-        # normalize img
-        #img0 = mvn(img0)
-        #img1 = mvn(img1)
-        #img2 = mvn(img2)        
+        if self.is_normalize_img:
+            img0 = mvn(img0)
+            img1 = mvn(img1)
+            img2 = mvn(img2)        
         return img0, img1, img2
 
     

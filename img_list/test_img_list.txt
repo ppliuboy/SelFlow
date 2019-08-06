@@ -1,0 +1,3 @@
+frame_0004.png frame_0005.png frame_0006.png 0005
+frame_0005.png frame_0006.png frame_0007.png 0006
+frame_0006.png frame_0007.png frame_0008.png 0007
