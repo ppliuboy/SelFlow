@@ -5,7 +5,7 @@ Authors: [Pengpeng liu](https://ppliuboy.github.io/), [Michael R. Lyu](http://ww
 
 - Testing code and part of pre-trained models are available.
 - Training code: please refer to [DDFlow](https://github.com/ppliuboy/DDFlow) to implement. With the current testing code and DDFlow code, the only thing you need to do is write a superpixel generation script. We use [skimage.segmentation.slic](https://scikit-image.org/docs/dev/api/skimage.segmentation.html#skimage.segmentation.slic) to generate superpixels. 
-- Raw Sintel data used in the paper: download images from the [link](https://media.xiph.org/sintel/sintel-2k-png/), and find the training clips in [clip split](./img_list/sintel_raw_clip_split.txt) 
+- Raw Sintel data used in the paper: download images from the [link](https://media.xiph.org/sintel/sintel-2k-png/), resize the image to resolution [1024*436] with nearest neighbor sampling and find the training clips in [clip split](./img_list/sintel_raw_clip_split.txt) 
 
 ![](./images/dance.gif)
 
