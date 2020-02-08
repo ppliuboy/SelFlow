@@ -4,11 +4,12 @@ The official Tensorflow implementation of [SelFlow](https://arxiv.org/abs/1904.0
 Authors: [Pengpeng liu](https://ppliuboy.github.io/), [Michael R. Lyu](http://www.cse.cuhk.edu.hk/lyu/), [Irwin King](https://www.cse.cuhk.edu.hk/irwin.king/), [Jia Xu](http://pages.cs.wisc.edu/~jiaxu/index.html)
 
 - Testing code and part of pre-trained models are available.
-- Training code will come soon. If you need the training code before we release, please refer our previous version [DDFlow](https://github.com/ppliuboy/DDFlow) to implement. DDFlow employs a simple but effective strategy to cope with occluded pixels. 
+- Training code: please refer to [DDFlow](https://github.com/ppliuboy/DDFlow) to implement. With the current testing code and DDFlow code, the only thing you need to do is write a superpixel generation script. We use [skimage.segmentation.slic](https://scikit-image.org/docs/dev/api/skimage.segmentation.html#skimage.segmentation.slic) to generate superpixels. 
+- Raw Sintel data used in the paper: download images from the [link](https://media.xiph.org/sintel/sintel-2k-png/), and find the training clips in [clip split](./img_list/sintel_raw_clip_split.txt) 
 
 ![](./images/dance.gif)
 
-Our SelFlow is the 1st place winner on [Sintel Optical Flow Benchmark](http://sintel.is.tue.mpg.de/results) since November 2018.
+Our SelFlow is the 1st place winner on [Sintel Optical Flow Benchmark](http://sintel.is.tue.mpg.de/results) from November 2018 to November 2019.
 ![](./images/sintel_benchmark.png)
 
 ## Requirements
@@ -33,9 +34,6 @@ Both forward and backward optical flow and their visualization will be written t
 - **Note** 
     -  Supervised pre-trained model: we normalize each channel to be standard normal distribution, please set *is_normalize_img=True*.
     -  Unsupervised pre-trained model: please set *is_normalize_img=False*.
-
-#### Training
-- Coming soon.
 
 ## Pre-trained Models
 Check [models](./models) for our pre-trained models on different datasets.
