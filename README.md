@@ -47,6 +47,13 @@ If you find SelFlow useful in your research, please consider citing:
     booktitle = {CVPR}, 
     year = {2019}
     }
+    
+    @inproceedings{Liu:2019:DDFlow, 
+    title = {DDFlow: Learning Optical Flow with Unlabeled Data Distillation}, 
+    author = {Pengpeng Liu and Irwin King and Michael R. Lyu and Jia Xu}, 
+    booktitle = {AAAI}, 
+    year = {2019}}
+
 
 ## Acknowledgement
 Part of our codes are adapted from [PWC-Net](https://github.com/NVlabs/PWC-Net) and [UnFlow](https://github.com/simonmeister/UnFlow), we thank the authors for their contributions.
