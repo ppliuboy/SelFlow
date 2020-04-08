@@ -68,7 +68,7 @@ def compute_cost_volume(x1, x2, H, W, channel, d=9):
     out_channels = d * d
     w = tf.eye(out_channels*channel, dtype=tf.float32)
     w = tf.reshape(w, (d, d, channel, out_channels*channel))
-    x2_patches = tf.nn.conv2d(x2_warp, w, strides=[1, 1, 1, 1], padding='SAME')
+    x2_patches = tf.nn.conv2d(x2, w, strides=[1, 1, 1, 1], padding='SAME')
     x2_patches = tf.reshape(x2_patches, [-1, H, W, d, d, channel])
     x1_reshape = tf.reshape(x1, [-1, H, W, 1, 1, channel])
     x1_dot_x2 = tf.multiply(x1_reshape, x2_patches)
