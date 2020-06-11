@@ -14,6 +14,16 @@ Our SelFlow is the 1st place winner on [Sintel Optical Flow Benchmark](http://si
 
 ## Requirements
 - **Software:** The code was developed with python (both python 2 and python 3 are supported), opencv, tensorflow 1.8 and anaconda (optional). It's okay to run without anaconda, but you may need to install the lacking packages by yourself when needed. For tensorflow of different versions, you may need to modify some functions accordingly.
+### Dockerfile
+There is a dockerfile with the neccesary dependencies which you can build with the command below.
+
+```docker build --network=host -t selflow .```
+
+You can run the docker image with command below.
+
+```docker run -it --rm --network=host -w /SelFlow selflow```
+
+You can then follow the instructions below to test the model
 
 ## Usage
 **By default, you can get the testing results using the pre-trained Sintel model by running:**
